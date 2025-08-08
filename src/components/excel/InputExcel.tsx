@@ -55,7 +55,7 @@ const InputExcel: React.FC<InputExcelProps> = ({ setDataEmployee }) => {
 
     try {
       const response = await axios.post(
-        "http://localhost:8080/upload",
+        `${import.meta.env.VITE_API_URL}/upload`,
         formData,
         {
           headers: {

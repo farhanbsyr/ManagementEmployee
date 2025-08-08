@@ -23,7 +23,9 @@ const TableEmployee = () => {
 
   const getAllEmployee = async () => {
     try {
-      const response = await axios.get("http://localhost:8080/api/employee");
+      const response = await axios.get(
+        `${import.meta.env.VITE_API_URL}/api/employee`
+      );
 
       setDataEmployee(response.data);
       console.log(response);
@@ -34,7 +36,9 @@ const TableEmployee = () => {
 
   const getTypeFilter = async () => {
     try {
-      const response = await axios.get("http://localhost:8080/api/typeFilter");
+      const response = await axios.get(
+        `${import.meta.env.VITE_API_URL}/api/typeFilter`
+      );
       const data: typesFilter = response.data;
       const newBranchs: string[] = [];
       const newPosition: string[] = [];
@@ -83,7 +87,9 @@ const TableEmployee = () => {
       status.forEach((s) => params.append("status", s));
 
       const response = await axios.get(
-        `http://localhost:8080/api/searchEmployee?${params.toString()}`
+        `${
+          import.meta.env.VITE_API_URL
+        }/api/searchEmployee?${params.toString()}`
       );
       console.log(response);
     } catch (error) {
