@@ -9,7 +9,6 @@ interface InputExcelProps {
 }
 
 const InputExcel: React.FC<InputExcelProps> = ({ setDataEmployee }) => {
-  const [fileName, setFileName] = useState<string>("");
   const [selectedFile, setSelectedFile] = useState<File | null>(null);
   const [error, setError] = useState<string>("");
 
@@ -36,14 +35,12 @@ const InputExcel: React.FC<InputExcelProps> = ({ setDataEmployee }) => {
       !allowedMimeTypes.includes(file.type)
     ) {
       setError("Hanya file Excel (.xlsx, .xls)");
-      setFileName("");
       setSelectedFile(null);
       e.target.value = "";
       return;
     }
 
     setError("");
-    setFileName(file.name);
     setSelectedFile(file);
   };
 

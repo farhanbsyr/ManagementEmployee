@@ -13,7 +13,6 @@ const TableEmployee = () => {
   const [isFocus, setIsFocus] = useState<boolean>(false);
   const [value, setValue] = useState<string>("");
   const [dataEmployee, setDataEmployee] = useState<employeeType[]>([]);
-  const [name, setName] = useState<string>("");
   const [gender, setGender] = useState<string[]>([]);
   const [position, setPosition] = useState<string[]>([]);
   const [branch, setBranch] = useState<string[]>([]);
@@ -64,8 +63,8 @@ const TableEmployee = () => {
   }, []);
 
   useEffect(() => {
-    filteredEmployee(name, gender, position, branch, status);
-  }, [name, gender, position, branch, status]);
+    filteredEmployee(value, gender, position, branch, status);
+  }, [value, gender, position, branch, status]);
 
   const filteredEmployee = async (
     name: string,
